@@ -4,6 +4,7 @@ import (
 	"context"
 	"errors"
 	"fmt"
+	"github.com/google/uuid"
 	"github.com/seaweedfs/seaweedfs/weed/cluster"
 	"net"
 	"sort"
@@ -260,7 +261,12 @@ func (ms *MasterServer) KeepConnected(stream master_pb.Seaweed_KeepConnectedServ
 		return ms.informNewLeader(stream)
 	}
 
-	peerAddress := pb.ServerAddress(req.ClientAddress)
+	clientAddress := req.ClientAddress
+	// Ensure that the clientAddress is unique.
+	if clientAddress == "" {
+		clientAddress = uuid.New().String()
+	}
+	peerAddress := pb.ServerAddress(clientAddress)
 
 	// buffer by 1 so we don't end up getting stuck writing to stopChan forever
 	stopChan := make(chan bool, 1)
@@ -361,8 +367,7 @@ func (ms *MasterServer) addClient(filerGroup, clientType string, clientAddress p
 	// the KeepConnected loop is no longer listening on this channel but we're
 	// trying to send to it in SendHeartbeat and so we can't lock the
 	// clientChansLock to remove the channel and we're stuck writing to it
-	// 100 is probably overkill
-	messageChan = make(chan *master_pb.KeepConnectedResponse, 100)
+	messageChan = make(chan *master_pb.KeepConnectedResponse, 10000)
 
 	ms.clientChansLock.Lock()
 	ms.clientChans[clientName] = messageChan
@@ -374,8 +379,10 @@ func (ms *MasterServer) deleteClient(clientName string) {
 	glog.V(0).Infof("- client %v", clientName)
 	ms.clientChansLock.Lock()
 	// close message chan, so that the KeepConnected go routine can exit
-	close(ms.clientChans[clientName])
-	delete(ms.clientChans, clientName)
+	if clientChan, ok := ms.clientChans[clientName]; ok {
+		close(clientChan)
+		delete(ms.clientChans, clientName)
+	}
 	ms.clientChansLock.Unlock()
 }
 
