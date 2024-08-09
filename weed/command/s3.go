@@ -180,8 +180,11 @@ func runS3(cmd *Command, args []string) bool {
 }
 
 // GetCertificateWithUpdate Auto refreshing TSL certificate
-func (S3opt *S3Options) GetCertificateWithUpdate(*tls.ClientHelloInfo) (*tls.Certificate, error) {
-	certs, err := S3opt.certProvider.KeyMaterial(context.Background())
+func (s3opt *S3Options) GetCertificateWithUpdate(*tls.ClientHelloInfo) (*tls.Certificate, error) {
+	certs, err := s3opt.certProvider.KeyMaterial(context.Background())
+	if certs == nil {
+		return nil, err
+	}
 	return &certs.Certs[0], err
 }
 
@@ -327,6 +330,10 @@ func (s3opt *S3Options) startS3Server() bool {
 			GetCertificate: s3opt.GetCertificateWithUpdate,
 			ClientAuth:     clientAuth,
 			ClientCAs:      caCertPool,
+		}
+		err = security.FixTlsConfig(util.GetViper(), httpS.TLSConfig)
+		if err != nil {
+			glog.Fatalf("error with tls config: %v", err)
 		}
 		if *s3opt.portHttps == 0 {
 			glog.V(0).Infof("Start Seaweed S3 API Server %s at https port %d", util.Version(), *s3opt.port)
