@@ -94,7 +94,7 @@ require (
 	github.com/xdg-go/scram v1.1.2 // indirect
 	github.com/xdg-go/stringprep v1.0.4 // indirect
 	github.com/youmark/pkcs8 v0.0.0-20240726163527-a2c0da244d78 // indirect
-	go.etcd.io/etcd/client/v3 v3.6.0
+	go.etcd.io/etcd/client/v3 v3.6.1
 	go.mongodb.org/mongo-driver v1.17.3
 	go.opencensus.io v0.24.0 // indirect
 	gocloud.dev v0.41.0
@@ -117,7 +117,7 @@ require (
 	modernc.org/b v1.0.0 // indirect
 	modernc.org/mathutil v1.7.1
 	modernc.org/memory v1.11.0 // indirect
-	modernc.org/sqlite v1.37.1
+	modernc.org/sqlite v1.38.0
 	modernc.org/strutil v1.2.1
 )
 
@@ -127,14 +127,14 @@ require (
 	github.com/armon/go-metrics v0.4.1
 	github.com/aws/aws-sdk-go-v2 v1.36.3
 	github.com/aws/aws-sdk-go-v2/config v1.29.14
-	github.com/aws/aws-sdk-go-v2/credentials v1.17.67
-	github.com/aws/aws-sdk-go-v2/service/s3 v1.80.0
+	github.com/aws/aws-sdk-go-v2/credentials v1.17.68
+	github.com/aws/aws-sdk-go-v2/service/s3 v1.80.1
 	github.com/cognusion/imaging v1.0.2
 	github.com/fluent/fluent-logger-golang v1.10.0
 	github.com/getsentry/sentry-go v0.31.1
 	github.com/golang-jwt/jwt/v5 v5.2.2
 	github.com/google/flatbuffers/go v0.0.0-20230108230133-3b8644d32c50
-	github.com/hanwen/go-fuse/v2 v2.7.2
+	github.com/hanwen/go-fuse/v2 v2.7.3-0.20250605191109-50f6569d1a7d
 	github.com/hashicorp/raft v1.7.3
 	github.com/hashicorp/raft-boltdb/v2 v2.3.1
 	github.com/minio/crc64nvme v1.0.1
@@ -144,14 +144,14 @@ require (
 	github.com/rabbitmq/amqp091-go v1.10.0
 	github.com/rclone/rclone v1.69.3
 	github.com/rdleal/intervalst v1.4.1
-	github.com/redis/go-redis/v9 v9.8.0
+	github.com/redis/go-redis/v9 v9.10.0
 	github.com/schollz/progressbar/v3 v3.18.0
 	github.com/shirou/gopsutil/v3 v3.24.5
 	github.com/tarantool/go-tarantool/v2 v2.3.2
 	github.com/tikv/client-go/v2 v2.0.7
 	github.com/ydb-platform/ydb-go-sdk-auth-environ v0.5.0
 	github.com/ydb-platform/ydb-go-sdk/v3 v3.108.3
-	go.etcd.io/etcd/client/pkg/v3 v3.6.0
+	go.etcd.io/etcd/client/pkg/v3 v3.6.1
 	go.uber.org/atomic v1.11.0
 	golang.org/x/sync v0.14.0
 	google.golang.org/grpc/security/advancedtls v1.0.0
@@ -205,7 +205,7 @@ require (
 	github.com/aws/aws-sdk-go-v2/service/sqs v1.38.3 // indirect
 	github.com/aws/aws-sdk-go-v2/service/sso v1.25.3 // indirect
 	github.com/aws/aws-sdk-go-v2/service/ssooidc v1.30.1 // indirect
-	github.com/aws/aws-sdk-go-v2/service/sts v1.33.19 // indirect
+	github.com/aws/aws-sdk-go-v2/service/sts v1.33.20 // indirect
 	github.com/aws/smithy-go v1.22.3 // indirect
 	github.com/boltdb/bolt v1.3.1 // indirect
 	github.com/bradenaw/juniper v0.15.2 // indirect
@@ -213,7 +213,7 @@ require (
 	github.com/buengese/sgzip v0.1.1 // indirect
 	github.com/calebcase/tmpfile v1.0.3 // indirect
 	github.com/chilts/sid v0.0.0-20190607042430-660e94789ec9 // indirect
-	github.com/cloudflare/circl v1.3.7 // indirect
+	github.com/cloudflare/circl v1.6.1 // indirect
 	github.com/cloudinary/cloudinary-go/v2 v2.9.0 // indirect
 	github.com/cloudsoda/go-smb2 v0.0.0-20241223203758-52b943b88fd6 // indirect
 	github.com/cncf/xds/go v0.0.0-20250326154945-ae57f3c0d45f // indirect
@@ -346,7 +346,7 @@ require (
 	github.com/zeebo/blake3 v0.2.3 // indirect
 	github.com/zeebo/errs v1.4.0 // indirect
 	go.etcd.io/bbolt v1.3.10 // indirect
-	go.etcd.io/etcd/api/v3 v3.6.0 // indirect
+	go.etcd.io/etcd/api/v3 v3.6.1 // indirect
 	go.opentelemetry.io/auto/sdk v1.1.0 // indirect
 	go.opentelemetry.io/contrib/detectors/gcp v1.35.0 // indirect
 	go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc v0.60.0 // indirect
@@ -366,7 +366,7 @@ require (
 	gopkg.in/validator.v2 v2.0.1 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
-	modernc.org/libc v1.65.7 // indirect
+	modernc.org/libc v1.65.10 // indirect
 	moul.io/http2curl/v2 v2.3.0 // indirect
 	storj.io/common v0.0.0-20240812101423-26b53789c348 // indirect
 	storj.io/drpc v0.0.35-0.20240709171858-0075ac871661 // indirect
